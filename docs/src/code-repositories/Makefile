@@ -1,8 +1,6 @@
 main:
 	@rubber --into build src/main.tex
 
-clean:
+mrproper:
 	@rm -f build/*
 
-mrproper: clean
-	@rm -f *.pdf

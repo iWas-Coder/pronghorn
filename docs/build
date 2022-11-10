@@ -3,6 +3,6 @@
 for dir in $(ls src); do
 	pushd src/$dir &>/dev/null
 	make mrproper && make
-	mv main.pdf ../../pdf/${dir}.pdf
+	mv build/main.dvi ../../pdf/${dir}.dvi
 	popd &>/dev/null
 done
