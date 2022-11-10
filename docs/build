@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for dir in $(ls src); do
+	pushd src/$dir &>/dev/null
+	make mrproper && make
+	mv main.pdf ../../pdf/${dir}.pdf
+	popd &>/dev/null
+done

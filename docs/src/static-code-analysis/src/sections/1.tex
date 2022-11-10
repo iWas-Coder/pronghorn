@@ -1,0 +1,13 @@
+\section{Static Code Analysis}
+
+Analizar código de forma estática se basa en realizar una serie de comprobaciones sobre el código fuente, sin la necesidad de realizar mediciones en tiempo de ejecución. Acciones comunes que suele realizar una herramienta de este tipo son, por ejemplo, buscar errores y vulnerabilidades conocidas, fugas de memoria, \textit{buffer overflows} o desbordamientos del búfer, cumplimiento con estándar de codificación, etc.
+
+\vspace{10px}
+
+Particularmente, ya que el análisis estático del código se realiza sin ejecutar el programa, puede llevarse a cabo durante la fase inicial del proceso de CI/CD, antes de integrar los cambios en el repositorio. Debido a su naturaleza, es esencial interpretar los resultados ofrecidos por estas herramientas, por lo que no puede ser un proceso ajeno al desarrollador, de hecho debe formar parte de todo cambio realizado en el código.
+
+\vspace{10px}
+
+Ya que no existe la herramienta perfecta, el proceso de análisis de código estático debe contener una batería de pruebas suficientemente amplia para obtener unos resultados lo más variados posible. En este sentido, este tipo de análisis se consideran estáticos ya que solo puede identificar los casos en los que se incumplen ciertas reglas programadas o conocidas, por lo que no puede encontrar todos los fallos únicamente leyendo el código fuente. Debido a esto, estas herramientas deben usarse en combinación con otras formas de análisis dinámico en tiempo de ejecución, y en conjunto con pruebas automatizadas durante las siguientes fases de la \textit{pipeline} de desarrollo.
+
+\pagebreak
