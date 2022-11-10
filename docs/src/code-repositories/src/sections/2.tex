@@ -1,6 +1,6 @@
 \section{Git Workflow and its relation with the CI/CD Pipeline}
 
-El flujo de trabajo en Git se debe realizar de forma organizada y responsable. La idea bajo una \textit{pipeline} de desarrollo, integración y despliegue continuos (CI/CD) es que, según las acciones que se realicen en unas ramas específicas del repositorio de código, se ejecuten diversas acciones acordes al momento y estado del producto.\\
+El flujo de trabajo en Git se debe realizar de forma organizada y responsable. La idea bajo una \textit{pipeline} de desarrollo, integración y despliegue continuos (CI/CD) es que, según las acciones que se realicen en unas ramas especificas del repositorio de código, se ejecutarán diversas acciones acordes al momento y estado del producto.\\
 
 \vspace{5px}
 
@@ -8,7 +8,17 @@ El flujo de trabajo en Git se debe realizar de forma organizada y responsable. L
 
 \vspace{10px}
 
-Cada una de las ramas en un repositorio Git se relaciona con una etapa en el ciclo de desarrollo del producto.
+Cada una de las ramas en un repositorio Git se relaciona con una etapa en el ciclo de desarrollo del producto.\\
+
+\vspace{5px}
+
+\begin{itemize}
+    \item \textbf{master}: Es la rama principal. Contiene el repositorio que se encuentra publicado en producción, por lo que debe ser siempre estable. Nunca se deberá hacer un commit directamente a esta rama, por lo que siempre se deberán integrar los cambios desde la rama de \textit{development} y, excepcionalmente desde \textit{hotfix}, (\verb|git checkout master && git merge --no-ff dev|).
+    \item \textbf{development (dev)}: Es la rama de integración, sacada de la rama de \textit{master}, por lo que todas las nuevas funcionalidades se deben integrar en esta rama. Una vez la rama sea estable, ya se podrá proceder a hacer un \textit{merge} sobre la rama \textit{master}.
+    \item \textbf{release}: \dots
+    \item \textbf{hotfix}: Se originan debido a errores de software que surgen en producción, por lo que se deben arreglar y publicar de forma urgente. Es por ello que son ramas sacadas de \textit{master}. Una vez corregido el error, se debe hacer una unificación de la rama directamente sobre \textit{master}. Al final, para que no quede desactualizada, se debe realizar la unificación de Master sobre Development.
+    \item \textbf{\textit{feature}}: Cada nueva funcionalidad se debe realizar en una rama nueva, sacada de la rama de \textit{development} (\verb|git checkout -b 'feature' dev|). Una vez que la funcionalidad esté desarrollada, se debe hacer un \textit{merge} sobre la rama de \textit{development}, donde se integrará con las demás funcionalidades (\verb|git checkout dev && git merge --no-ff 'feature'|).
+\end{itemize}
 
 \vspace{5px}
 
