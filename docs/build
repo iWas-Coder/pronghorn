@@ -5,11 +5,11 @@ for dir in $(ls src); do
 	# Entering to each document's root
 	pushd src/$dir &>/dev/null
 	# Cleaning and building
-	make mrproper && make
+	make
 	# Move any figures (img/*.eps) that could be included
 	cp -rf src/img ../../pdf 2>/dev/null
-	# Moving the generated document to the final directory
-	mv build/main.dvi ../../pdf/${dir}.dvi
+	# Copying the generated document to the final directory
+	cp build/main.dvi ../../pdf/${dir}.dvi
 	# Returning to the base dir
 	popd &>/dev/null
 done

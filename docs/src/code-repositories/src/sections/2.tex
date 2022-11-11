@@ -10,8 +10,6 @@ El flujo de trabajo en Git se debe realizar de forma organizada y responsable. L
 
 Cada una de las ramas en un repositorio Git se relaciona con una etapa en el ciclo de desarrollo del producto.\\
 
-\vspace{5px}
-
 \begin{itemize}
     \item \textbf{master}: Es la rama principal. Contiene el repositorio que se encuentra publicado en producción, por lo que debe ser siempre estable. Nunca se deberá hacer un commit directamente a esta rama, por lo que siempre se deberán integrar los cambios desde la rama de \textit{development} y, excepcionalmente desde \textit{hotfix}, (\verb|git checkout master && git merge --no-ff dev|).
     \item \textbf{development (dev)}: Es la rama de integración, sacada de la rama de \textit{master}, por lo que todas las nuevas funcionalidades se deben integrar en esta rama. Una vez la rama sea estable, ya se podrá proceder a hacer un \textit{merge} sobre la rama \textit{master}.
