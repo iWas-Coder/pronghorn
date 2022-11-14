@@ -14,10 +14,12 @@ for dir in $(ls src); do
 	popd &>/dev/null
 done
 
+# DVI to PDF
 pushd pdf &>/dev/null
 for doc in $(ls | grep -i .dvi); do
 	dvipdf $doc
 done
+# Removing dependencies
 rm -rf img
 rm -f *.dvi
 popd &>/dev/null
