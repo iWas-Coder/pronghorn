@@ -9,7 +9,9 @@ configure
 compile
 install-sh
 missing
+texinfo.tex
 depcomp
 Makefile.in
 # ../configure && make
+docs/*.info
 build/

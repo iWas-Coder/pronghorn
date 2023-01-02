@@ -5,8 +5,11 @@
 This is the copyright license @copyright{}.
 @end copying
 
-@c Table of contents
-@contents
+@ifnottex
+@node Top
+@top Report Root
+This is the root of the report.
+@end ifnottex
 
 @c Title page
 @titlepage
@@ -16,7 +19,10 @@ This is the copyright license @copyright{}.
 @insertcopying
 @end titlepage
 
+@c Table of contents
+@contents
+
 @chapter Example 1
 The @code{makeinfo} and @code{texinfo-format-buffer} commands transform a Texinfo file such as this into an Info file; and @TeX{} typesets it for a printed manual.
 
-@end
+@bye
