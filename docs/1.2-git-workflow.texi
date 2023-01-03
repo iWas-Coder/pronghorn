@@ -1,0 +1,31 @@
+@c Section 2: Git Workflow
+@node Git Workflow
+@section Git Workflow
+
+El flujo de trabajo en Git se debe realizar de forma organizada y responsable. La idea bajo una @i{pipeline} de desarrollo, integración y despliegue continuos (CI/CD) es que, según las acciones que se realicen en unas ramas especificas del repositorio de código, se ejecutarán diversas acciones acordes al momento y estado del producto.
+
+@itemize @bullet
+@item
+@b{master}: Es la rama principal. Contiene el repositorio que se encuentra publicado en producción, por lo que debe ser siempre estable. Nunca se deberá hacer un commit directamente a esta rama, por lo que siempre se integrarán los cambios desde la rama @i{development} y, excepcionalmente desde @i{hotfix}, e.g.
+@example
+git checkout master && git merge --no-ff dev
+@end example
+@item
+@b{development (dev)}: Es la rama de integración, sacada de la rama de @i{master}, por lo que todas las nuevas funcionalidades se deben integrar en esta rama. Una vez la rama sea estable, ya se podrá proceder a hacer un @i{merge} sobre la rama @i{master}.
+@item
+@b{release}: Apoyan la preparación de nuevas versiones de producción, arreglando errores menores y preparando los metadatos. Se suelen originar de la rama @i{development}. Un buen complemento al uso de este tipo de ramas son las etiquetas, o @i{tags}, los cuales se asignan a determinados @i{commits}, para poder diferenciarlos del resto, e.g.
+@example
+git tag -a v6.0 -m "Version 6.0"
+@end example
+@item
+@b{hotfix}: Se originan debido a errores de software que surgen en producción, por lo que se deben arreglar y publicar de forma urgente. Es por ello que son ramas sacadas de @i{master}. Una vez corregido el error, se debe hacer una unificación de la rama directamente sobre @i{master}. Al final, para que no quede desactualizada, se debe realizar la unificación de @i{master} sobre @i{development}.
+@item
+@b{feature}: Cada nueva funcionalidad se debe realizar en una rama nueva, sacada de la rama de @i{development}, e.g.
+@example
+git checkout -b main-menu-fluent-design dev
+@end example
+Una vez que la funcionalidad esté desarrollada, se debe hacer un @i{merge} sobre la rama de @i{development}, donde se integrará con las demás funcionalidades, e.g.
+@example
+git checkout dev && git merge --no-ff main-menu-fluent-design
+@end example
+@end itemize

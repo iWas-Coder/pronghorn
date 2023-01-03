@@ -1,2 +1,1 @@
-info_TEXINFOS = \
-		docs/test.texi
+info_TEXINFOS = docs/report.texi

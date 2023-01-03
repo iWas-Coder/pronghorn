@@ -1,7 +1,8 @@
 # Initialization of Autoconf with specific project information
 AC_INIT([pronghorn], [0.1], [wasymatieh01@gmail.com])
 # Initialization of Automake
-AM_INIT_AUTOMAKE([-Wall -Werror subdir-objects silent-rules])
+AM_INIT_AUTOMAKE([-Wall -Werror subdir-objects silent-rules gnu])
+AM_SILENT_RULES([yes])
 # Declaration of config output header
 AC_CONFIG_HEADERS([config.h])
 

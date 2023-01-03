@@ -1,0 +1,18 @@
+\input texinfo
+@c Pronghorn
+@include 0.1-copying.texi
+@include 0.2-title-toc.texi
+
+@c Chapter 1: Version Control Systems and Code Repository Tools
+@node Version Control Systems and Code Repository Tools
+@chapter Version Control Systems and Code Repository Tools
+
+@menu
+* Version Control Tools:: ...
+* Git Workflow:: ...
+@end menu
+
+@include 1.1-version-control-tools.texi
+@include 1.2-git-workflow.texi
+
+@bye

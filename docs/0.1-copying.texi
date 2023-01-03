@@ -1,0 +1,5 @@
+@setfilename report.info
+@settitle Pronghorn
+@copying
+This is the copyright license @copyright{}.
+@end copying
