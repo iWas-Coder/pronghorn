@@ -10,3 +10,22 @@
 [//]: # (README Body)
 
 A fast, simple, efficient and automated CI/CD pipeline.
+
+## Building
+### From Release Tarball
+```shell
+mkdir build && cd $_
+../configure
+make
+```
+### From Git Repository
+```shell
+aclocal
+autoheader
+automake -a
+autoconf
+
+mkdir build && cd $_
+../configure
+make
+```

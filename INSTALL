@@ -4,10 +4,10 @@ Instructions to prepare the project when cloned directly the repository:
 
 1. aclocal
 2. autoheader
-3. autoconf
-4. automake -a
+3. automake -a
+4. autoconf
 
-(aclocal && autoheader && autoconf && automake -a)
+[aclocal && autoheader && automake -a && autoconf]
 
 Release Tarball
 ---------------
@@ -15,7 +15,7 @@ After preparing the project with the previous instructions, or when
 downloaded directly a release tarball:
 
 1. mkdir build && cd $_
-2. ../configure
+2. ../configure [--prefix=$(pwd)/INSTALL]
 3. make [-jN]
 
 
