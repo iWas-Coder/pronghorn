@@ -12,21 +12,7 @@
 A fast, simple, efficient and automated CI/CD pipeline.
 
 ## Building
-### From Release Tarball
 ```shell
-mkdir build && cd $_
-../configure
-make help
-```
-### From Git Repository
-```shell
-aclocal
-autoheader
-automake -a
-autoconf
-
-mkdir build && cd $_
-../configure
 make help
 ```
 For more information, please check the full [INSTALL](./INSTALL) guide.
