@@ -1,0 +1,8 @@
+*.tex linguist-detectable=true
+*.tex linguist-language=latex
+
+*.tf linguist-detectable=true
+*.tf linguist-language=terraform
+
+*.yaml linguist-detectable=true
+*.yaml linguist-language=yaml
