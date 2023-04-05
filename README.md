@@ -1,6 +1,6 @@
 [//]: # (Title of the project)
 
-![logo](https://raw.githubusercontent.com/iWas-Coder/pronghorn/master/assets/logo.png)
+![logo](assets/logo.png "Pronghorn")
 # Pronghorn: A fast and simple CI/CD pipeline
 
 [//]: # (GPLv3 License indicator)
@@ -11,18 +11,48 @@
 
 A fast, simple, efficient and automated CI/CD pipeline.
 
+## Table of Contents
+
+- [Building](#building)
+- [CI/CD Pipeline Proposal](#cicd-pipeline-proposal)
+  - [Git](#git)
+  - [GitLab CI]()
+  - [Argo CD]()
+  - [Kubernetes]()
+- [Infrastructure Provisioning](#infrastructure-provisioning)
+  - [Development Architecture](#development-architecture)
+  - [Production-ready Architecture](#production-ready-architecture)
+
 ## Building
+
 ```shell
 make help
 ```
 For more information, please check the full [INSTALL](./INSTALL) guide.
 
-## Architecture
+## CI/CD Pipeline Proposal
 
-![docker-tornado](https://miro.medium.com/max/624/0*lSZklwNLiZrkoitK.gif)
+(...)
 
-This project provides an automated way of deploying a CI/CD pipeline to develop software. It contains both a local deployment via Docker Compose (a container orchestration tool) for development and testing purposes, and a Kubernetes aimed Namespace, Deployment, Service and Helm Chart for a production-level stage.
+### Git
 
-This is a diagram of the pipeline architecture using Docker Compose in a local machine:
+## Infrastructure Provisioning
 
-![dev-architecture](https://raw.githubusercontent.com/iWas-Coder/pronghorn/master/assets/architecture.png)
+(...)
+
+### Development Architecture
+
+<p float="left">
+  <img src="assets/docker-tornado.gif" alt="Docker" width=300/>
+  <img src="assets/kind.png" alt="Kind (Kubernetes in Docker)" width=400/> 
+</p>
+
+(...)
+
+![dev-architecture](assets/architecture.png "Development Architecture Diagram")
+
+### Production-ready Architecture
+
+![k8s](assets/k8s.png "Kubernetes")
+
+(...)

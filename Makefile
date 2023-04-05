@@ -75,8 +75,9 @@ mrproper: clean
 
 # Help
 help:
-	@printf "all\t- Build all targets marked with [*]\n"
+	@printf "all\t\t- Build all targets marked with [*]\n"
+	@printf "clean\t\t- Clean build directory\n"
+	@printf "mrproper\t- Cleans final products (depends on 'build')"
 	@echo ""
 	@printf "Execute 'make' or 'make all' to build all targets marked with [*]\n"
 	@printf "For further info see the ./README file and the documentation generated\n"
-
