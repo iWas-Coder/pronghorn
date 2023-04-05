@@ -1,5 +1,5 @@
 *.tex linguist-detectable=true
-*.tex linguist-language=latex
+*.tex linguist-language=tex
 
 *.tf linguist-detectable=true
 *.tf linguist-language=terraform
