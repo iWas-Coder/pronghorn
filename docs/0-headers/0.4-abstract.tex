@@ -32,7 +32,18 @@ En general, Pronghorn proporciona un canal de CI/CD automatizado, personalizable
 
 @b{Resum}@*
 
-El resum en Català (...).
+
+Pronghorn és un canal automatitzat d'integració contínua i desplegament continu (CI/CD) dissenyat per simplificar i accelerar els processos de desenvolupament i desplegament de programari. El canal integra una arquitectura basada en Git que permet el control de versions i la col·laboració entre els membres de l'equip. Consta de diversos components, com ara GitLab per al control de versions, SonarQube per a l'anàlisi de la qualitat del codi, un registre de contenidors per a emmagatzemar i desplegar imatges de contenidors, un repositori de gràfics Helm per a emmagatzemar aplicacions Kubernetes, Sealed Secrets de Bitnami per a la gestió de secrets xifrats i ArgoCD per a l'automatització del desplegament.
+
+El pipeline suporta diferents entorns, com ara desenvolupament, preproducció i producció. Cada entorn té un propòsit específic, i el codi es prova i valida abans de passar al següent entorn. Pronghorn també incorpora segmentació de repositoris i metodologies GitOps per proporcionar un control granular sobre el procés de desplegament.
+
+El diagrama de flux de Pronghorn il·lustra com interactua cada component amb els altres i com es mou el codi a través de les diferents etapes del canal. El disseny del canal fa èmfasi en la simplicitat, l'eficàcia i la velocitat, el que permet un ràpid desenvolupament i desplegament del programari.
+
+Amb Pronghorn, els desenvolupadors poden automatitzar tot el procés de desenvolupament i desplegament de programari, des de la confirmació del codi fins a la implantació en producció. L'arquitectura basada en Git permet als desenvolupadors col·laborar en el codi i mantenir el control de versions durant tot el procés de desenvolupament de programari.
+
+Pronghorn també ofereix avantatges addicionals, com ara temps de desplegament més ràpids, millor qualitat del codi i major productivitat de l'equip. El seu disseny modular permet als desenvolupadors personalitzar i afegir components al pipeline segons les seves necessitats.
+
+En general, Pronghorn proporciona un canal de CI/CD automatitzat, personalitzable i basat en Git que pot adaptar-se a diferents entorns i processos de desenvolupament de programari.
 
 @c Blank page
 @page
