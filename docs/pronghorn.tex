@@ -1,7 +1,34 @@
 \input texinfo
+
+
+@c
+@c GNU Pronghorn, a fast and simple CI/CD pipeline.
+@c Copyright (C) 2022-2023 Wasym A. Alonso
+@c
+@c This work and all its documentation is licensed under the
+@c Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) License.
+@c
+@c You should have received a copy of the appropriate Creative Commons License
+@c along with this work. If not, see <https://creativecommons.org/licenses/by-sa/4.0/legalcode>.
+@c
+@c This program is free software: you can redistribute it and/or modify
+@c it under the terms of the GNU General Public License as published by
+@c the Free Software Foundation, either version 3 of the License, or
+@c (at your option) any later version.
+@c
+@c This program is distributed in the hope that it will be useful,
+@c but WITHOUT ANY WARRANTY; without even the implied warranty of
+@c MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+@c GNU General Public License for more details.
+@c
+@c You should have received a copy of the GNU General Public License
+@c along with this program. If not, see <http://www.gnu.org/licenses/gpl-3.0>.
+@c
+
+
+@afourlatex
 @setfilename pronghorn.info
 @settitle Pronghorn
-@c Pronghorn: A fast, simple, efficient and automated CI/CD pipeline
 
 
 @c Document Headers (license statement, title, acknowledgements, abstract, ToC)
@@ -12,11 +39,76 @@
 @include docs/0-headers/0.5-toc.tex
 
 
-@c Chapter 1: Introduction
-@node Introduction
-@chapter Introduction
+@c Chapter 1: Background and legacy workflows
+@node Background and legacy workflows
+@chapter Background and legacy workflows
+@include docs/1-background.tex
 
-@include docs/1-introduction/1-introduction.tex
+
+@c Chapter 2: Virtualization
+@node Virtualization
+@chapter Virtualization
+@menu
+* Hardware/Platform Virtualization:: ...
+* OS-level Virtualization or Containerization:: ...
+@end menu
+@include docs/2-virtualization/2.1-hardware.tex
+@include docs/2-virtualization/2.2-containerization.tex
+
+
+@c Chapter 3: Version Control System (VCS)
+@node Version Control System (VCS)
+@chapter Version Control System (VCS)
+@include docs/3-vcs.tex
+
+
+@c Chapter 4: Infrastructure Provisioning
+@node Infrastructure Provisioning
+@chapter Infrastructure Provisioning
+@menu
+* Development Architecture:: ...
+* Production-ready Architecture:: ...
+@end menu
+@include docs/4-infrastructure/4.1-development.tex
+@include docs/4-infrastructure/4.2-production.tex
+
+
+@c Chapter 5: Configuration Management
+@node Configuration Management
+@chapter Configuration Management
+@include docs/5-configuration.tex
+
+
+@c Chapter 6: GitOps and Repository Segmentation
+@node GitOps and Repository Segmentation
+@chapter GitOps and Repository Segmentation
+@include docs/6-gitops.tex
+
+
+@c Chapter 7: Environments
+@node Environments
+@chapter Environments
+@menu
+* Temporary (PR-based):: ...
+* Development:: ...
+* Preproduction:: ...
+* Production:: ...
+@end menu
+@include docs/7-environments/7.1-temporary.tex
+@include docs/7-environments/7.2-development.tex
+@include docs/7-environments/7.3-preproduction.tex
+@include docs/7-environments/7.4-production.tex
+
+
+@c Chapter 8: Pronghorn CI/CD Pipeline Proposal
+@node Pronghorn CI/CD Pipeline Proposal
+@chapter Pronghorn CI/CD Pipeline Proposal
+@menu
+* Components:: ...
+* Flow Diagram:: ...
+@end menu
+@include docs/8-pipeline/8.1-components.tex
+@include docs/8-pipeline/8.2-flowchart.tex
 
 
 @bye
