@@ -42,7 +42,7 @@ else
 endif
 
 # Dependencies
-DEPS = pdfinfo gs texi2pdf makeinfo
+DEPS = pdfinfo gs tex texi2pdf makeinfo
 DEPS_EXEC := $(foreach dep,$(DEPS),\
 	$(if $(shell which $(dep) 2>/dev/null),,$(error No `$(dep)` in PATH)))
 
@@ -52,6 +52,7 @@ PPO_CLEAN = CLEAN
 PPO_HTML = HTML
 PPO_PDF = PDF
 PPO_GS = GS
+PPO_LN = LN
 
 # Directories
 DOCS_DIR = docs
@@ -93,7 +94,7 @@ $(DOCS_PDF_FILE): $(DOCS_COVER_FILE) $(DOCS_OUT_FILE)
 $(DOCS_OUT_FILE): $(DOCS_SRC)
 	@printf "  $(PPO_MKDIR)\t$(DOCS_BUILD_DIR)\n"
 	@mkdir -p $(DOCS_BUILD_DIR)
-	@for doc_src in $^ ; do                             \
+	@for doc_src in $^ ; do                               \
 		printf "  $(PPO_PDF)\t$${doc_src}\n" && sleep 0.25; \
 	done
 	@texi2pdf --build-dir=$(DOCS_BUILD_DIR) $(DOCS_ROOT_FILE) -o $(DOCS_OUT_FILE) &>/dev/null
@@ -107,9 +108,11 @@ html: $(DOCS_HTML_FILE)
 $(DOCS_HTML_FILE): $(DOCS_SRC) $(DOCS_CSS_FILE)
 	@printf "  $(PPO_MKDIR)\t$(DOCS_HTML_FILE)\n"
 	@makeinfo --html $(DOCS_ROOT_FILE) --css-include $(DOCS_CSS_FILE) -o $(DOCS_HTML_FILE) &>/dev/null
-	@for html_file in $$(ls $(DOCS_HTML_FILE)/*) ; do        \
+	@for html_file in $$(ls $(DOCS_HTML_FILE)/*) ; do       \
 		printf "  $(PPO_HTML)\t$${html_file}\n" && sleep 0.1; \
 	done
+	@printf "  $(PPO_LN)\t$(APP).html\n"
+	@ln -s $@ $(APP).html
 
 
 #########################
@@ -131,6 +134,8 @@ mrproper: clean
 	@if [ -d $(DOCS_HTML_FILE) ]; then              \
 		printf "  $(PPO_CLEAN)\t$(DOCS_HTML_FILE)\n"; \
 		rm -r $(DOCS_HTML_FILE);                      \
+		printf "  $(PPO_CLEAN)\t$(APP).html\n";       \
+		rm $(APP).html;                               \
 	fi
 
 # Help
