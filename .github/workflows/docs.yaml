@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - synchronize
 
 permissions:
   contents: read
@@ -30,9 +36,10 @@ jobs:
       - name: upload-artifact
         uses: actions/upload-artifact@v3
         with:
-          name: pronghorn-thesis
+          name: pronghorn-paper-pdf
           path: pronghorn-*.pdf
   deploy:
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     container: texlive/texlive
     environment:
@@ -47,7 +54,6 @@ jobs:
       - name: build
         run: |
           make html
-          ls -la
       - name: configure-pages
         uses: actions/configure-pages@v3
       - name: upload-pages-artifact
