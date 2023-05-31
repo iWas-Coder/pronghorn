@@ -131,6 +131,13 @@ small { font-size: .9em; }
 
 img { max-width: 100%}
 
+blockquote {
+   font-style: normal;
+   border-left: solid 10px rgb(179, 0, 0);
+   padding-left: 2.5%;
+   margin-left: 0px;
+}
+
 
 /*** SIMPLE CLASSES ***/
 

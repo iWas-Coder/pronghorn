@@ -67,7 +67,7 @@ DOCS_COVER_FILE := $(shell find $(DOCS_DIR) -type f -name "cover.ps")
 DOCS_OUT_FILE := $(DOCS_BUILD_DIR)/$(APP).tmp.pdf
 DOCS_PDF_FILE := $(APP)-v$(FULL_VERSION).pdf
 DOCS_HTML_FILE := $(subst .pdf,.html,$(DOCS_PDF_FILE))
-DOCS_CSS_FILE := $(shell find $(DOCS_DIR) -type f -name "manual.css")
+DOCS_CSS_FILE := $(shell find $(DOCS_DIR) -type f -name "style.css")
 DOCS_PDF_NUM_PAGES = $(shell pdfinfo $(DOCS_PDF_FILE) | grep "Pages" | xargs | awk '{print $$2}')
 DOCS_HTML_NUM_FILES = $(shell ls $(DOCS_HTML_FILE) | wc -l)
 
