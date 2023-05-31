@@ -1,0 +1,13 @@
+Installation Instructions
+*************************
+
+Copyright (C) 2022-2023 Wasym A. Alonso.
+
+Copying and distribution of this file, with or without modification, are permitted in any medium without royalty provided the copyright notice and this notice are preserved. This file is offered as-is, without warranty of any kind.
+
+Basic Installation
+==================
+
+The shell command `make` configures and builds the entire project. If only certain parts of the project wanted to be built, they can be specified as arguments to the previous command, e.g. `make pdf`.
+
+If you need to do unusual things to compile the package, please try to figure out how is structured the `Makefile` and what things must be addressed to compile it successfully. If wanted a more generic solution to a specific issue, see `CONTRIBUTING.md` to follow the project's contribution guidelines.
