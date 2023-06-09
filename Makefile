@@ -84,7 +84,7 @@ all: pdf html
 # Documentation: PDF format
 pdf: $(DOCS_PDF_FILE)
 	@sleep 0.15
-	@printf "Thesis: $^ is ready  (#$(DOCS_PDF_NUM_PAGES))\n"
+	@printf "Printed: $^ is ready  (#$(DOCS_PDF_NUM_PAGES))\n"
 
 # Documentation (PDF): Assembly of PDF file
 $(DOCS_PDF_FILE): $(DOCS_METADATA_FILE) $(DOCS_COVER_FILE) $(DOCS_OUT_FILE)
