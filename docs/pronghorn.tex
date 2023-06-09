@@ -39,76 +39,79 @@
 @include docs/0-headers/0.5-toc.tex
 
 
-@c Chapter 1: Background and legacy workflows
-@node Background and legacy workflows
-@chapter Background and legacy workflows
-@include docs/1-background.tex
-
-
-@c Chapter 2: Virtualization
-@node Virtualization
-@chapter Virtualization
+@c Chapter 1: Introduction
+@node Introduction
+@chapter Introduction
 @menu
-* Hardware/Platform Virtualization:: ...
-* OS-level Virtualization or Containerization:: ...
+* Background and Legacy Workflows
+* Literature Review
 @end menu
-@include docs/2-virtualization/2.1-hardware.tex
-@include docs/2-virtualization/2.2-containerization.tex
+@include docs/1-introduction/1.1-background.tex
+@include docs/1-introduction/1.2-literature.tex
 
+@c Chapter 2: Methodology
+@node Methodology
+@chapter Methodology
+@include docs/2-methodology/2-methodology.tex
 
 @c Chapter 3: Version Control System (VCS)
 @node Version Control System (VCS)
 @chapter Version Control System (VCS)
-@include docs/3-vcs.tex
-
+@menu
+* Approach
+* Git Workflow
+* GitOps and Repository Segmentation
+@end menu
+@include docs/3-vcs/3.1-approach.tex
+@include docs/3-vcs/3.2-gitflow.tex
+@include docs/3-vcs/3.3-gitops.tex
 
 @c Chapter 4: Infrastructure Provisioning
 @node Infrastructure Provisioning
 @chapter Infrastructure Provisioning
 @menu
-* Development Architecture:: ...
-* Production-ready Architecture:: ...
+* Virtualization
+* Infrastructure as Code (IaC/IaaC)
+* Configuration Management (CM)
+* Cloud-based Dependant Infrastructure
 @end menu
-@include docs/4-infrastructure/4.1-development.tex
-@include docs/4-infrastructure/4.2-production.tex
+@include docs/4-infrastructure/4.1-virtualization.tex
+@include docs/4-infrastructure/4.2-iac.tex
+@include docs/4-infrastructure/4.3-cm.tex
+@include docs/4-infrastructure/4.4-cloud.tex
 
-
-@c Chapter 5: Configuration Management
-@node Configuration Management
-@chapter Configuration Management
-@include docs/5-configuration.tex
-
-
-@c Chapter 6: GitOps and Repository Segmentation
-@node GitOps and Repository Segmentation
-@chapter GitOps and Repository Segmentation
-@include docs/6-gitops.tex
-
-
-@c Chapter 7: Environments
-@node Environments
-@chapter Environments
+@c Chapter 5: Continuous Integration (CI)
+@node Continuous Integration (CI)
+@chapter Continuous Integration (CI)
 @menu
-* Temporary (PR-based):: ...
-* Development:: ...
-* Preproduction:: ...
-* Production:: ...
+* GitHub Actions
+* Stages
 @end menu
-@include docs/7-environments/7.1-temporary.tex
-@include docs/7-environments/7.2-development.tex
-@include docs/7-environments/7.3-preproduction.tex
-@include docs/7-environments/7.4-production.tex
+@include docs/5-ci/5.1-github.tex
+@include docs/5-ci/5.2-stages.tex
 
-
-@c Chapter 8: Pronghorn CI/CD Pipeline Proposal
-@node Pronghorn CI/CD Pipeline Proposal
-@chapter Pronghorn CI/CD Pipeline Proposal
+@c Chapter 6: Continuous Deployment (CD)
+@node Continuous Deployment (CD)
+@chapter Continuous Deployment (CD)
 @menu
-* Components:: ...
-* Flow Diagram:: ...
+* The App-Image-Chart Synchronization
+* Secret Sealing
 @end menu
-@include docs/8-pipeline/8.1-components.tex
-@include docs/8-pipeline/8.2-flowchart.tex
+@include docs/6-cd/6.1-sync.tex
+@include docs/6-cd/6.2-secrets.tex
+
+@c Chapter 7: Discussion and Conclusions
+@node Discussion and Conclusions
+@chapter Discussion and Conclusions
+@include docs/7-conclusions/7-conclusions.tex
+
+
+@c References
+@iftex
+@node References
+@unnumbered References
+@include docs/references.tex
+@end iftex
 
 
 @bye
