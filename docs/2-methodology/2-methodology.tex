@@ -1,9 +1,58 @@
-(...)
+The methodology followed for this project involved several key resources to be able to mantain a structured and comfortable environment and workflow.
+
+One of the key tools and platforms throughout the project planning and control process has been @b{Trello}, which is a web-based project management tool, based on the @i{Kanban} methodology and planning strategy, that uses a visual interface to help teams organize and prioritize tasks. The @i{Kanban} system organizes tasks using a board with columns as the different possible states a task can be in (different stages of the workflow), and cards representing the tasks to be completed (work items). For this project we used the following columns:
+
+@float Table,kanban-columns
+@shortcaption{Kanban columns}
+@caption{Kanban columns}
+@table @samp
+@item Planning
+This column is used to @i{brain-storm} and capture all tasks that are in the initial planning stage, and also different ideas, requirements, or potential tasks.
+
+@item In progress
+Once a task starts to be implemented, is is moved to this column, which represents the active items that we are currently working on.
+
+@item Blocked
+This column is used to mark tasks as temporarily unable to progress due to dependencies, external input, or because of certain issues that need to be resolved first. This helps us identify any bottlenecks in the project and be able to address them as fast as possible.
+
+@item In review
+This column represent all completed tasks that are waiting for a review, feedback or approval, thus, it allows designated reviewers to ensure its quality before they can proceed to the next stage.
+
+@item Done
+Once a task has been reviewed, approved (if applicable) and finalized, they are moved to this column. This provides a clear visual representation of the progress made in the project and a quick way to see all tasks that have been accomplished.
+@end table
+@end float
+
+@page
+
+The main advantage that Trello was able to offer us is the ability to visualize the entire workflow at a glance, check task's status, identify problems and issues, and prioritize the work that has to be done accordingly.
 
 @float Figure,trello
 @shortcaption{Trello screenshot}
 @caption{Trello screenshot}
-@image{img/trello,15cm,,Trello screenshot,}
+@center @image{img/trello,11.5cm,,Trello screenshot,}
 @end float
 
-(...)
+@*
+
+The @b{Pronghorn} project, as presented in this work, spanned from September 2022 to early July 2023, and it has gone through different distinct phases or stages:
+
+@float Table,project-stages
+@shortcaption{@i{Pronghorn} project stages}
+@caption{@i{Pronghorn} project stages}
+@table @b
+@item Research Stage [September 2022, December 2022]
+This initial stage focused on extensive research to gain a deep understanding of the subject matter and explore existing @i{CI/CD pipeline} and @i{GitOps} methodologies.
+
+@item Thesis drafting and tool testing Stage [January 2023, April 2023]
+During this stage, the thesis drafting and typesetting process started, and the tools required for the implementation were thoroughly tested in an integrated development environment. This allowed for hands-on experimentation and familiarization with the different tools to ensure their suitability for the project's objectives and philosophy.
+
+@item Complete thesis writing Stage [May 2023, Mid-June 2023]
+This stage involved the comprehensive and complete writing of the thesis, incorporating the research findings, implementation details, and analysis. It also included multiple final revisions and editing to ensure a coherent and polished document.
+
+@item Technical Demo implementation and visual presentation [Mid-June 2023, Early-July 2023]
+In this final stage, a technical demonstration was prepared to showcase the implemented pipeline and the workflow that it offers. Additionally, visual aids were created to support the thesis defense and provide a clear and concise presentation of the project's key differentiating and innovative aspects.
+@end table
+@end float
+
+To maintain a well-structured and version-controlled approach, the entire project was organized in a Git repository hosted on GitHub (@url{https://github.com/iWas-Coder/pronghorn}). Also @i{Continuous Integration (CI)} played a significant role in automating various processes, for instance, @b{GitHub Actions} was utilized to automatically compile the thesis document, and also to publish it in HTML format through @b{GitHub Pages} (@url{https://iwas-coder.github.io/pronghorn/}), providing easy access and navigation for readers.

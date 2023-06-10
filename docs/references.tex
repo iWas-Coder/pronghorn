@@ -2,6 +2,15 @@
 @multitable @columnfractions 0.018 0.982
 
 
+@c TEXT REFERENCING HINTS
+@c *****************************************************************************
+@c In-text referencing => @sup{(@ref{[N],,N})}
+@c Always after the text wanted to reference from.
+
+@c In-figure/table caption referencing => @caption{...; @pxref{[N],[N],N}}
+@c *****************************************************************************
+
+
 @c START TEMPLATE
 @ignore
 @c REFERENCE NUM. ...
@@ -237,6 +246,24 @@ Weaveworks;
 2022.
 @c URL
 <@url{https://www.weave.works/blog/add-gitops-to-ci-tools}>.
+@c *****************************************************************************
+
+@c REFERENCE NUM. 13
+@c *****************************************************************************
+@c Label [Wil21]
+@item @anchor{[13]}[13]
+@c Spacing
+@tab
+@c Author(s)
+R. Wilsenach.
+@c Title
+@quotedblleft{}@i{Ship/Show/Ask: A modern branching strategy}@quotedblright{}.
+@c Publisher(s)
+martinFowler.com;
+@c Date published
+2021.
+@c URL
+<@url{https://martinfowler.com/articles/ship-show-ask.html}>.
 @c *****************************************************************************
 
 
