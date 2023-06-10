@@ -114,7 +114,7 @@ $(DOCS_HTML_FILE): $(DOCS_SRC) $(DOCS_CSS_FILE)
 		rm $(APP).html;                  \
 	fi
 	@printf "  $(PPO_MKDIR)\t$(DOCS_HTML_FILE)\n"
-	@makeinfo --html $(DOCS_ROOT_FILE) --css-include $(DOCS_CSS_FILE) -o $(DOCS_HTML_FILE) &>/dev/null
+	@makeinfo --html $(DOCS_ROOT_FILE) --css-include $(DOCS_CSS_FILE) -o $(DOCS_HTML_FILE)
 	@for html_file in $$(ls $(DOCS_HTML_FILE)/*) ; do       \
 		printf "  $(PPO_HTML)\t$${html_file}\n" && sleep 0.1; \
 	done
