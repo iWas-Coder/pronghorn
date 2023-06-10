@@ -50,6 +50,7 @@ DEPS_EXEC := $(foreach dep,$(DEPS),\
 PPO_MKDIR = MKDIR
 PPO_CLEAN = CLEAN
 PPO_HTML = HTML
+PPO_IMG = IMG
 PPO_PDF = PDF
 PPO_GS = GS
 PPO_LN = LN
@@ -57,9 +58,10 @@ PPO_LN = LN
 # Directories
 DOCS_DIR = docs
 BUILD_DIR = build
+DOCS_IMG_DIR := $(DOCS_DIR)/img
+DOCS_BUILD_DIR := $(BUILD_DIR)/$(DOCS_DIR)
 
 # Documentation
-DOCS_BUILD_DIR := $(BUILD_DIR)/$(DOCS_DIR)
 DOCS_ROOT_FILE := $(shell find $(DOCS_DIR) -type f -name "pronghorn.tex")
 DOCS_SRC := $(shell find $(DOCS_DIR) -type f -iname "*.tex")
 DOCS_METADATA_FILE := $(shell find $(DOCS_DIR) -type f -name "metadata.pdfmark")
@@ -84,7 +86,7 @@ all: pdf html
 # Documentation: PDF format
 pdf: $(DOCS_PDF_FILE)
 	@sleep 0.15
-	@printf "Thesis: $^ is ready  (#$(DOCS_PDF_NUM_PAGES))\n"
+	@printf "Printed: $^ is ready  (#$(DOCS_PDF_NUM_PAGES))\n"
 
 # Documentation (PDF): Assembly of PDF file
 $(DOCS_PDF_FILE): $(DOCS_METADATA_FILE) $(DOCS_COVER_FILE) $(DOCS_OUT_FILE)
@@ -109,12 +111,15 @@ html: $(DOCS_HTML_FILE)
 $(DOCS_HTML_FILE): $(DOCS_SRC) $(DOCS_CSS_FILE)
 	@if [ -d $(DOCS_HTML_FILE) ]; then \
 		rm -r $(DOCS_HTML_FILE);         \
+		rm $(APP).html;                  \
 	fi
 	@printf "  $(PPO_MKDIR)\t$(DOCS_HTML_FILE)\n"
 	@makeinfo --html $(DOCS_ROOT_FILE) --css-include $(DOCS_CSS_FILE) -o $(DOCS_HTML_FILE) &>/dev/null
 	@for html_file in $$(ls $(DOCS_HTML_FILE)/*) ; do       \
 		printf "  $(PPO_HTML)\t$${html_file}\n" && sleep 0.1; \
 	done
+	@printf "  $(PPO_IMG)\t$(DOCS_HTML_FILE)/img\n"
+	@cp -r $(DOCS_IMG_DIR) $(DOCS_HTML_FILE)
 	@printf "  $(PPO_LN)\t$(APP).html\n"
 	@ln -s $@ $(APP).html
 
@@ -139,7 +144,7 @@ mrproper: clean
 		printf "  $(PPO_CLEAN)\t$(DOCS_HTML_FILE)\n"; \
 		rm -r $(DOCS_HTML_FILE);                      \
 		printf "  $(PPO_CLEAN)\t$(APP).html\n";       \
-		rm $(APP).html;                               \
+		rm -f $(APP).html;                            \
 	fi
 
 # Help

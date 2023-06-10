@@ -1,0 +1,57 @@
+@c Section 3.2: Git Workflow Environments
+@node Git Workflow Environments
+@section Git Workflow Environments
+@menu
+* Temporary ENV (PR-based)
+* Development ENV
+* Preproduction ENV
+* Production ENV
+@end menu
+
+Working with Git should be done in an organised and responsible way, as @i{Linus Torvalds} originally intended. The idea under a continuous development, integration and deployment (CI/CD) pipeline is that, depending on the actions performed on specific branches of the code repository, different actions will be executed according to the time and state of the product.
+
+The two workflows that will be discussed in this paper are: @b{Gitflow}, created and published by @i{Vincent Driessen} back in 2010@sup{(@ref{[4],,4})}, and @b{Trunk Based Development (TBD)}, first created by @i{Paul Hammant} in 2017@sup{(@ref{[7],,7})}, and later extended with the help of multiple collaborators around the world.
+
+With @b{Gitflow}, we have different types or classes of branches, each of them having a very specific role and interaction policy with the rest. Instead of using a single core/trunk branch, like the original Git design, it uses two main branches, @samp{master} (production) and @samp{develop} (development), each of which defines and describes a different environment. All new features and changes to the source code are implemented in @samp{feature-*} branches, which are forked from and merged to the @samp{develop} branch. When a set of new features is ready for release, a @samp{release-*} branch is forked from the @samp{develop} branch, it only can implement small bug fixes and documentation additions and changes, and is merged to both @samp{master} (as a new production version) and @samp{develop} (as a synchronization method between the development and the production versions) branches. Last but not least, we have the @samp{hotfix-*} branches, which are intended to quickly fix issues in production releases, and are forked from @samp{master} and merged to both @samp{master} and @samp{develop} branches; they can be considered naturally analogous branches to the @samp{release-*} ones, having as counterpoints their existance rationale (@b{user bugs} vs. @b{developer bugs}) and their fork point (@samp{master} vs. @samp{develop}).
+
+@float Figure,gitflow
+@shortcaption{Gitflow diagram}
+@caption{Gitflow diagram; @pxref{[4],[4],4}}
+@center @image{img/gitflow,7.7cm,,Gitflow diagram,}
+@end float
+
+@page
+
+Unlike Gitflow, @b{Trunk Based Development (TBD)} promotes a simpler and more streamlined development process by encouraging developers to work directly on a shared @samp{trunk} or @samp{master} branch. In TBD, feature branches may exist, but they should be short-lived, so do not always wait until the feature is completely finished and tested to merge it to master. Therefore, this workflow was designed with Continuous Integration (CI) in mind, to be able to maintain code quality and ensure that changes are seamlessly integrated into the @samp{trunk}. However, TBD may not be suitable for all projects or teams. It requires robust automation and test coverage to ensure the stability of the trunk branch. Additionally, it relies on feature flags, which can introduce complexity and require careful management to avoid feature creep or technical debt.
+
+@float Figure,tbd
+@shortcaption{TBD diagram}
+@caption{TBD diagram}
+@center @image{img/tbd,14cm,,TBD diagram,}
+@end float
+
+@*
+
+This workflow can be easily and efficiently integrated with the @b{Ship/Show/Ask} philosophy and branching strategy@sup{(@ref{[13],,13})}, which considers three different options when wanting to merge to @samp{master} a specific feature:
+
+@float Table,ship-show-ask
+@shortcaption{Ship/Show/Ask strategy}
+@caption{Ship/Show/Ask strategy}
+@table @samp
+@item Ship
+This option involves committing directly to @samp{master}. This is aimed to small and minor adjustments, bug fixes, and documentation additions and changes.
+
+@item Show
+This option involves creating a @b{Pull Request (PR)} to merge the changes, wait for the CI checks to pass, and, only then, merge it right away to @samp{master}. Your team will receive a notification about your PR, allowing them to review your work, offer you feedback, and ask you questions about the code committed.
+
+@item Ask
+This is the traditional option, where we wait for approval before merging the changes to @samp{master}. The approval is @b{never} a requirement for a PR to be merged, instead we use it to ask for different opinions on a specific approach, or maybe because we do not know how to further optimize a certain piece of code.
+@end table
+@end float
+
+@page
+
+@include docs/3-vcs/3.2.1-temporary.tex
+@include docs/3-vcs/3.2.2-development.tex
+@include docs/3-vcs/3.2.3-preproduction.tex
+@include docs/3-vcs/3.2.4-production.tex
