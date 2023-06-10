@@ -33,7 +33,7 @@ DESC = A fast, simple, efficient and automated CI/CD pipeline
 VERSION = 1
 PATCHLEVEL = 0
 SUBLEVEL = 0
-EXTRAVERSION = -rc1
+EXTRAVERSION = -rc2
 NAME = Hurr durr I'ma cute kitten
 ifeq ($(SUBLEVEL),0)
 	FULL_VERSION ?= $(VERSION).$(PATCHLEVEL)$(EXTRAVERSION)
