@@ -2,4 +2,28 @@
 @node OS-level Virtualization or Containerization
 @subsection OS-level Virtualization or Containerization
 
-(...)
+With hardware/platform virtualization, many problems have been solved at the level of machine segmentation and isolation; however, sometimes this is not enough, and it is necessary to go a step further.
+
+This is the case of operating system virtualization, commonly called containerization, which is a technology that allows applications to run in isolated and portable environments called @b{containers}. These containers provide a complete runtime environment that includes the application, its dependencies, libraries, and configuration files, encapsulated in a single package. Unlike virtual machines, containers do not require a separate operating system for each instance; instead, they share the host system's operating system kernel (@i{Linux}), which makes them more lightweight and enables faster startup and better resource efficiency.
+
+There are different flavours of the containerization technology, such as:
+
+@itemize @bullet
+@item Unix/Linux-based containers
+@item Windows containers
+@item FreeBSD jails
+@end itemize
+
+Despite all of these being viable option, Linux-based containers are the most useful and predominant way of this level of virtualization, and it is the preferred one in the majority of scenarios and environments. A Linux container is a process that the kernel forked, so it shares the same host kernel as all other processes running in the system. The interesting thing here is that the Linux kernel utilized an isolated environment for each of these container processes, called @b{kernel namespaces}. Therefore, each containerized process only is able to see its own processes (the ones running inside that container or namespace) and not other ones (such as other container's processes or host processes).
+
+Moreover, each container process gets assigned by the kernel a specific @b{control group}, or @b{cgroup}, which regulates the computing resources (such as RAM, CPU, I/O, etc.) that that specific container can utilize, ensuring that a single container cannot control all resources within the host system.
+
+@float Figure,containers
+@shortcaption{Containerization process diagram}
+@caption{Containerization process diagram}
+@center @image{img/containers,10.7cm,,Containerization process diagram,}
+@end float
+
+@*
+
+For more information on how to create, store, and integrate them in the CI pipeline, @pxref{Package}.

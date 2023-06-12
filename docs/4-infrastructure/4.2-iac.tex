@@ -1,5 +1,39 @@
-@c Section 4.2: Infrastructure as Code (IaC/IaaC)
-@node Infrastructure as Code (IaC/IaaC)
-@section Infrastructure as Code (IaC/IaaC)
+@c Section 4.2: Infrastructure as Code (IaC/IaaC/IaaS)
+@node Infrastructure as Code (IaC/IaaC/IaaS)
+@section Infrastructure as Code (IaC/IaaC/IaaS)
 
-(...)
+Infrastructure as Code (IaC/IaaC), or Infrastructure as a Service (IaaS), is an approach of provisioning, deploying, managing, and configuring all infrastructure resources using a declarative syntax. This way, they are described as a desired state, enabling developers and operations teams to automate the creation and management of resources in a consistent and repeatable manner.
+
+The most consistent and useful tool to perform this way of administrating and managing the infrastructure, amongst all others, is @b{Terraform}, which is an open-source IaC tool developed by @i{HashiCorp} that allows access to various on-premise, cloud, data centers and service providers using configuration files written in either @i{HashiCorp Configuration Language (HCL)} or @i{JSON}.
+
+All code can be written in a single @samp{*.tf} file, but, as it is a codebase that it will be mantained in a Git repository, it is best to separate and modularize code with different roles and purposes. This is a nice and tidy directory structure that will help us collaborating in different parts of the codebase without affecting the rest:
+
+@verbatim
+.
+|-- secrets/
+|-- providers/
++-- nodes/
+@end verbatim
+
+@*
+
+@cartouche
+@noindent A @samp{main.tf} file can be written to initialize all providers with their desired version to use. This is an example importing the @b{Ansible} provider, @pxref{Configuration Management (CM)} for more information.
+@end cartouche
+
+@example
+terraform @{
+  required_providers @{
+    ansible = @{
+      version = "~> 1.1.0"
+      source = "ansible/ansible"
+    @}
+  @}
+@}
+@end example
+
+@*
+
+All files within the @samp{nodes/} directory are resources definition, which describe the underlaying infrastructure that we want to deploy, while the @samp{providers/} ; @pxref{Cloud-based Dependant Infrastructure} for more information about cloud-based definitions.
+
+When deploying a Kubernetes cluster using Infrastructure as Code (IaC), Terraform can be utilized to define and provision the underlying infrastructure required for the cluster, including creating VMs, setting up networking, and configuring storage resources. By using this approach, the entire cluster can be managed consistently, version-controlled, and easily replicated.

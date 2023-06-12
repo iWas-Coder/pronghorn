@@ -2,4 +2,36 @@
 @node GitHub Actions
 @section GitHub Actions
 
-(...)
+There are several continuous integration and continuous deployment (CI/CD) platforms that can be used, but for the sake of simplicity and to unify the Git repositories remotes with all automated capabilities, this section is focused on the solution provided by GitHub.
+
+With GitHub Actions, there can be defined custom @b{workflows} (pipelines), @b{jobs} (set of steps within a workflow) and @b{steps} (individual tasks within a job). Also, GitHub provides hosted @b{runners} (execution environments for workflows) that are managed and maintained by them, but there can be deployed self-hosted ones in our own infrastructure, e.g. to run the workflow that monitors and controls a @i{k8s cluster} defined with @i{Terraform} and @i{Ansible}; also they are needed to perform a local SonarQube analysis.
+
+@cartouche
+@noindent This is a blank basic example (@samp{.github/workflows/example.yaml}) that showcases the order of jobs and the GitHub Actions's workflow syntax (YAML).
+@end cartouche
+
+@example
+name: example
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  build:
+  test:
+  analysis:
+  package:
+  storage:
+@end example
+
+@*
+
+In the next sections, a complete overview and description of all key CI stages described here, which are relevant when developing an application.

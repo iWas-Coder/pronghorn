@@ -2,6 +2,22 @@
 @node Approach
 @section Approach
 
-(...)
+Version control is an essential practice in software development based on managing and storing all changes made over time to a product.
+Although version control can be done manually, it is practically imperative to use a system that manages it automatically.
+
+Two of the best known are @b{Apache Subversion (SVN)} and @b{Git}, so we will focus on these two to discern which of them is preferable to integrate into our development pipeline.
+
+@*
+
+@b{Subversion (SVN)} began its development in early 2000 by @i{CollabNet}, until, around 2009, the project was taken over by the @i{Apache Software Foundation}.
+
+SVN is based on a centralised version control system, so there will be a single repository visible and accessible to all users. This makes it impossible to merge changes, so a file cannot be edited by more than one user concurrently.
+
+@*
+
+In 2005, @i{Linus Torvalds}, the creator of Linux, probably the world's most widely used monolithic open source Unix-based kernel, initiated the development of a new version control system as an alternative to @i{Bitkeeper}.
+
+@b{Git} is based on a distributed model, so all users have access to the repository locally. To allow all changes to be unified, all local repositories must be synchronised with one or more remote repositories, where all changes are incorporated and merged.
+In this way, all developers have access to the entire repository, including the local history, without relying on any kind of network connection. When someone has a change ready locally, it can be uploaded with great speed to the remote repository without any lock-in.
 
 @page

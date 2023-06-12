@@ -2,4 +2,56 @@
 @node Configuration Management (CM)
 @section Configuration Management (CM)
 
-(...)
+When provisioning a Kubernetes cluster with Terraform, @i{configuration management} plays a crucial role in ensuring the desired state and proper functioning of the cluster. Configuration management tools such as @b{Ansible}, @b{Chef}, or @b{Puppet} can be utilized to manage the software and configurations within the cluster nodes, which involve tasks such as defining configuration baselines, tracking changes, enforcing desired configurations, and managing the drift or inconsistencies that may occur over time.
+
+Provisioning and Configuration Management actions are not mutually exclusive, as the tools used to deploy infrastructure (e.g. @i{Terraform}) can also perform configuration management actions. Terraform providers allow you to run scripts or execute commands on the provisioned infrastructure to perform configuration tasks, e.g. install and configure software, perform initial setup, or execute custom scripts on the provisioned resources.
+
+However, if wanted to deploy and control a fully-featured @i{on-premise}, it is more advisable to use a specific utility for the task, such as @b{Ansible}, which is an open-source CM and automation tool that focuses on simplicity and agentless execution (as well as Terraform). It uses a declarative syntax with the YAML language to define the so called @b{playbooks}, which describe the desired state of systems and the tasks required to achieve that state (imperative approach). Although this combination of Terraform and Ansible can be done as separate steps in the pipeline, the Ansible Terraform provider allows a more straightforward way of executing automation and configuration playgrounds.
+
+@cartouche
+@noindent This file (@samp{hosts}) defines all control plane and worker nodes within the cluster with their respective IPv4 addresses.
+@end cartouche
+
+@example
+[masters]
+master ansible_host=10.0.7.1 ansible_user=root
+
+[workers]
+worker1 ansible_host=10.0.7.2 ansible_user=root
+worker2 ansible_host=10.0.7.3 ansible_user=root
+@end example
+
+@*
+
+@cartouche
+@noindent This is a showcase of the first tasks to perform on every new @i{k8s cluster} using an Ansible playbook: create a new user on each node (@samp{users.yaml}).
+@end cartouche
+
+@example
+- hosts: 'workers, masters'
+  become: yes
+
+  tasks:
+    - name: User creation
+      user:
+        name: kube
+        append: yes
+        state: present
+        createhome: yes
+        shell: /bin/bash
+    
+    - name: Sudo permissions
+      lineinfile:
+        dest: /etc/sudoers
+        line: 'kube ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+    
+    - name: Authorized keys
+      authorized_key: user=kube key="@{@{item@}@}"
+      with_file:
+        - ~/.ssh/id_rsa.pub
+@end example
+
+@*
+
+From here, all of the Ansible playbooks can be organized and version controlled within the same infrastructure repository, along with all Terraform's provisioning codebase.
