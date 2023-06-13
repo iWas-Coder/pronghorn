@@ -7,7 +7,11 @@
 * Argo Templates Repository
 @end menu
 
-(...)
+In order to decouple the CD part from the regular CI pipeline, using a GitOps approach (@pxref{GitOps and Repository Segmentation} for a general aproximation), we will discuss here the usage of a modern and powerful platform called @b{Argo CD}.
+
+This tool will be able to perform a synchronization between the application repository itself, the container images pushed to the registry, and the Helm charts also pushed to the registry. When a new image is released, @b{Argo CD Image Updater} makes a new commit to the specific Helm chart's source repository with the new image version; then, the @i{CI pipeline} in that repository packages the new chart version and pushes it to the registry. Whenever a new chart of the application is released, based on specific rules and filters, the so called Image Updater is able to make a new commit to the repository that handles all @i{declarative Argo CD manifests} (@pxref{Argo Templates Repository}) and update the chart version that is using.
+
+As presented here, this workflow is very powerful and can be fully customized for the application's specific needs. In the following sections and subsections there will be discussed all parts within this model.
 
 @include docs/6-cd/6.1.1-images.tex
 @include docs/6-cd/6.1.2-charts.tex

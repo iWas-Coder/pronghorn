@@ -2,4 +2,30 @@
 @node Argo Templates Repository
 @subsection Argo Templates Repository
 
+This specifc repository, or directory inside an existing repository, host all manifest files needed to configure Argo CD with a declarative approach. With this setup, we can manage how Argo CD behaves through GitOps practices.
+
+@cartouche
+@noindent Argo CD @samp{Application} resource specification in @i{YAML} syntax.
+@end cartouche
+
+@example
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: example
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: example
+    repoURL: (...)
+    targetRevision: 1.0
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: example
+@end example
+
 (...)

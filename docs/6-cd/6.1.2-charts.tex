@@ -2,4 +2,20 @@
 @node Helm Charts Repository
 @subsection Helm Charts Repository
 
-(...)
+Helm charts repositories are the ones that store and distribute Helm charts, which are packages that contain pre-configured @b{Kubernetes manifests}, templates, and configuration files that describe the resources needed to deploy an application or service.
+
+The structure of a Helm charts repository typically follows a specific format. It includes an @b{index file} that serves as a catalog of available charts, containing metadata about each chart, such as its name, version, and dependencies. It also includes directories and subdirectories that store the actual Helm chart packages, typically packaged as compressed archives (@samp{.tgz} or @samp{tar.gz} files).
+
+@verbatim
+.
+|-- charts/
+|-- crds/
+|-- templates/
+|-- Chart.yaml
+|-- values.yaml
+|-- values.schema.json
+|-- LICENSE
++-- README.md
+@end verbatim
+
+Since the release of @b{Helm 3}, OCI container registries can be used to store and share chart packages directly. This simplifies a lot the workflow, since it is no longer needed specifc repositories to host all charts, it can be stored both the container images and the Helm charts all in one place.
