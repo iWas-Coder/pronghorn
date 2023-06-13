@@ -34,6 +34,6 @@ terraform @{
 
 @*
 
-All files within the @samp{nodes/} directory are resources definition, which describe the underlaying infrastructure that we want to deploy, while the @samp{providers/} ; @pxref{Cloud-based Dependant Infrastructure} for more information about cloud-based definitions.
+All files within the @samp{nodes/} directory are resources definition, which describe the underlaying infrastructure that we want to deploy, while the @samp{providers/} one holds all specific providers initialization and configuration, as well as data structures definitions to be used across all deployable resources. For an actual example using a cloud provider as AWS, @pxref{Cloud-based Dependant Infrastructure} for more information.
 
 When deploying a Kubernetes cluster using Infrastructure as Code (IaC), Terraform can be utilized to define and provision the underlying infrastructure required for the cluster, including creating VMs, setting up networking, and configuring storage resources. By using this approach, the entire cluster can be managed consistently, version-controlled, and easily replicated.

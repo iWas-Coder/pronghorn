@@ -1,11 +1,28 @@
-@c Subsection 3.2.1: Temporary ENV (PR-based)
-@node Temporary ENV (PR-based)
-@subsection Temporary ENV (PR-based)
+@c Subsection 3.2.1: Temporary (PR-based)
+@node Temporary (PR-based)
+@subsection Temporary (PR-based)
 
-(...)
+Depending on the type of workflow we choose, we will tend to orient our project towards a very bifurcated and complex architecture, or towards a simpler and more straightforward solution. In both cases, when the time comes to implement a new feature in the project, it is always a good practice to open a @b{Pull Request (PR)} to, at the very least, let the other collaborators know what features are being developed and give feedback, or simply take a look at them out of pure curiosity. These PRs are just an intermediate step to carry out a merge of two different branches. Apart from their contribution in terms of documentation, they are a vital element when implementing a @b{continuous integration and deployment (CI/CD)} system in our project.
 
-In the @b{Gitflow} model, (...)
+Ultimately, the goal we want to achieve is to be able to execute certain actions depending on the source branch and the target branch specified in the PR definition. A clear example of this would be that, as a developer synchronises new commits in a PR defined as:
 
-On the other hand, when se use a @b{TBD} model, (...)
+@float Figure,merge-math
+@shortcaption{Merge-type commit mathematical aproximation}
+@caption{Merge-type commit mathematical aproximation}
+@displaymath
+f(x, y): merge(x \rightarrow y)
+@end displaymath
+@displaymath
+merge(a \rightarrow b): b[\,] + commit(@&a, @&b)
+@end displaymath
+@displaymath
+@&x \equiv HEAD(x)
+@end displaymath
+@end float
 
-(...)
+@*
+
+, then a continuous integration process would monitor each synchronisation and compile, test, analyse and provide a development environment where the state of the project can be seen and tested first hand in real time.
+This, while seemingly wildly futuristic, is perfectly feasible and efficient; for more information @pxref{Continuous Integration (CI)}.
+
+when se use a @b{TBD} model, this environment also acts as the development and preproduction ones (i.e. these are omitted); thus, we only rely on a temporary/development environment and a production one (@pxref{Production}).

@@ -1,11 +1,7 @@
-@c Subsection 3.2.2: Development ENV
-@node Development ENV
-@subsection Development ENV
+@c Subsection 3.2.2: Development
+@node Development
+@subsection Development
 
-(...)
+This type of environment is exclusive to the @b{Gitflow} or similar working model, where the @samp{develop} branch is the one that will act as such. Because every new developed feature that is approved (manually or via CI) is merged into this branch, this environment is useful to be able to observe the behaviour of all the application components interacting with each other, in a production-like environment without affecting it directly or indirectly.
 
-In the @b{Gitflow} model, (...)
-
-On the other hand, when se use a @b{TBD} model, (...)
-
-(...)
+Due to its nature, this environment will be the most up-to-date at all times and the one that presents all the news and innovations first. In a certain environment that requires it, it is possible to modify the Gitflow work model, which we will call @b{collapsed Gitflow}, where the @samp{release-*} branches (preproduction/staging) are dispensed with and all their functions are delegated to the @samp{develop} branch (now with the ability to be renamed to @samp{staging}).
