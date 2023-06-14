@@ -2,4 +2,10 @@
 @node Storage
 @subsection Storage
 
-(...)
+This last step of the pipeline involves, similarly as the previous stage, using a tool such as @b{Buildah} to store the built images in a remote @i{OCI Image Register} (@pxref{Container Images Registry} for more information), e.g. @b{docker.io}.
+
+It will be needed an API key or token in order to authenticate to @i{Docker Hub}, and, given that this will be performed through GitHub Actions (CI pipeline), it has to be configured in the repository's settings (@b{Actions secrets}) and then accessed through the YAML synatax with @samp{$@{@{secrets.DOCKER_HUB_TOKEN@}@}}.
+
+To push an image to @b{Docker Hub}, it can be used the @samp{docker://} @i{URI scheme protocol} without specifying host or port. The resulting command, following the example in the previous section, is as follows: @code{buildah push --creds <USERNAME>:<TOKEN> example:1.0-amd64 docker://<USERNAME>/example}.
+
+To simplify it, this stage can be merged with the @b{Package}, to avoid having to archive the image before pushing it to the registry, and be able to do all container-based operations in the same CI stage.
