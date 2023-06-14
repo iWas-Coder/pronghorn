@@ -28,21 +28,17 @@ variable "aws_access_key" @{
   sensitive = true
   type = string
 @}
-
 variable "aws_secret_key" @{
   default = "NOT_FOUND"
   sensitive = true
   type = string
 @}
-
 provider "aws" @{
   region = "eu-south-2"
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 @}
 @end example
-
-@*
 
 @cartouche
 @noindent This file (@samp{./providers/aws/os-ubuntu.tf}) serves as a data holder for certain information that will be used ofter while deploying instances with AWS, in this case (i.e. an OS specific version).
