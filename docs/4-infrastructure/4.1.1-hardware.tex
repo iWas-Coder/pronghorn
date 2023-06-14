@@ -2,4 +2,10 @@
 @node Hardware and Platform Virtualization
 @subsection Hardware and Platform Virtualization
 
-(...)
+Hardware or platform virtualization involves creating multiple virtual machines (VMs) that emulate the behavior of physical hardware. It abstracts the underlying hardware resources, such as CPU, memory, storage, and network, and allows them to be shared among multiple VMs. Each VM can run its own operating system and applications, making it independent and isolated from other VMs, optimizing heavily scalability, resources usage and workload isolation.
+
+To be able to perform this task, we have different options, being the most recognized and useful ones @i{VMware ESXi} and @i{Proxmox}. These solutions, also known as @b{type 1} or @b{bare metal hypervisors}, provide a complete operating system to virtualize hardware into different VMs and manage them. 
+
+These operating systems are typically Linux-based, and all of them use the @i{Kernel-based Virtual Machine (KVM)} technology, built into the kernel itself, making any Linux-based distribution into a hypervisor that allows a host machine to run multiple VMs.
+
+Although any distribution of the Linux kernel can behave as a hypervisor, a specific OS such as the ones stated before provide a custom web-based UI to manage all available resources, as well as an API to be able to use an infrastructure as code solution. For more information, @pxref{Infrastructure as Code (IaC/IaaC/IaaS)}.

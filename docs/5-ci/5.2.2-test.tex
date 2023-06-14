@@ -2,4 +2,24 @@
 @node Test
 @subsection Test
 
-(...)
+The testing stage is one of the most important parts of the CI pipeline, and plays a crucial role in ensuring all works as intended in terms of functionality, stability, performance, and reliability, before proceeding to the next stage.
+
+@float Table,tests-types
+@shortcaption{Test types}
+@caption{Test types}
+@table @samp
+@item Unit tests
+These tests focuses on verifying the smallest units of code, typically individual functions or methods. For web-based applications, this process focuses on individual components such as API endpoints, services, or controllers. These unit tests ensure that each unit behaves as expected and meets its intended functionality while being in isolation.
+
+@item Integration tests
+These tests assess the interaction and compatibility between different components or modules of the software, verifying that the integrated parts work together and data can flow seamlessly between them.
+
+@item End-to-end (E2E) tests
+This is the part where the entire software is evaluated from start to finish, simulating all real-world scenarios as possible. For web-based applications, it is simulated all possible user interactions with the UI, navigations, form submissions and data persistence.
+
+@item Performance tests
+The last portion of this testing workflow is performance-oriented, where it is evaluated the responsiveness, scalability, and resource usage of the software under different workloads. For web-based applications, other factors as response times, server load handling, and scalability are evaluated.
+@end table
+@end float
+
+(...) JUnit, Selenium, Cypress, (...)

@@ -2,4 +2,21 @@
 @node Analysis
 @subsection Analysis
 
-(...)
+Static code analysis is based on performing a series of checks on the source code, without the need for runtime measurements. Common actions that such a tool usually performs are, for example, looking for known bugs and vulnerabilities, memory leaks, buffer overflows, compliance with coding standards, etc.
+
+In particular, since the static analysis of the code is performed without executing the program, it can be carried out during the initial phase of the @b{CI/CD} process, before integrating the changes in the repository. Due to its nature, it is essential to interpret the results provided by these tools, so it cannot be a process alien to the developer, in fact it must be part of every change made to the code.
+
+Since there is no such thing as a perfect tool, the static code analysis process must contain a sufficiently large battery of tests to obtain results that are as varied as possible. In this sense, this type of analysis is considered static because it can only identify cases where certain known or programmed rules are broken, so it cannot find all bugs by reading the source code alone. Because of this, these tools should be used in combination with other forms of dynamic analysis at runtime, and in conjunction with automated testing during the next phases of the development pipeline.
+
+One way to centralise this whole process is to use a platform that offers all these possibilities for code analysis and quality control. The most widely used and versatile at the moment is @b{SonarQube}, which is an open-source platform that provides continuous code quality management and static code analysis, as stated before. It is able to perform automated code reviews by analyzing source code and identifying potential bugs, vulnerabilities and coding format deviating from the language-specific best practices. It supports multiple programming languages and integrates with various build tools and development environments.
+
+Furthermore, it can apply @b{Quality Gates} to a project, which are nothing more than a set of predefined rules that the code must meet to be considered accepted and moved forward to the next CI stage, or if it needs further improvement before proceeding. These rules involve several metrics that SonarQube analyzes and evaluates against, for instance:
+
+@itemize @bullet
+@item Code coverage
+@item Code duplication
+@item Complexity
+@item Adherence to coding standards
+@end itemize
+
+They play a crucial role in ensuring a minimum desired quality standards and helps prevent introducing low-quality, inefficient, and vulnerable code into a specific software product. Therefore, integrating them into the CI pipeline will help developers monitor the status of every relevant branch, identify all detected problems in an early development stage, and ensuring no undesirable code has been merged to a production environment.

@@ -2,4 +2,24 @@
 @node GitOps and Repository Segmentation
 @section GitOps and Repository Segmentation
 
-(...)
+GitOps is a group of operational practices that leverages @b{Git as the single source of truth} for managing and controlling the entire software delivery lifecycle, involving the usage of declarative definitions and version control systems (Git) to manage infrastructure, configuration, and application deployments.
+
+Instead of letting the CI/CD pipeline, with its imperative nature, take care of everything from its position, GitOps practices aim to have application deployment done using a declarative approach.
+
+This is the simplified workflow resulting from the emancipation of the CD from the CI pipeline (for more information, @pxref{Continuous Deployment (CD)}).
+
+@float Figure,gitops
+@shortcaption{GitOps toolchain diagram}
+@caption{GitOps toolchain diagram}
+@center @image{img/gitops,12cm,,GitOps toolchain diagram,}
+@end float
+
+@*
+
+Using this approach, our codebase will be modularized and separated in different Git repositories, the essential ones being:
+
+@itemize @bullet
+@item Application source code
+@item Helm chart source code
+@item Kubernetes & ArgoCD Manifests
+@end itemize

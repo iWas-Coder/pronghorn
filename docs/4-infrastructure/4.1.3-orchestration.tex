@@ -2,4 +2,32 @@
 @node Container Orchestration
 @subsection Container Orchestration
 
-(...)
+While @i{containerization} in its own is really useful and modernizes and makes more flexible the packaging and delivery of applications and programs of nearly any kind. But, in order to deploy them in an efficient way, it is needed another entity in our infrastructure: the @b{orchestrator}.
+
+Container orchestration refers to the actions involved in controlling, managing, and coordinating containerized applications @b{at scale}, performing automated tasks such as deploying, modifying, or scaling different containers across multiple nodes or instances, what is called an @b{orchestration cluster}.
+
+To do so, we have @b{Kubernetes (k8s)}, which is a popular open-source container orchestration platform that provides a robust and resilient set of features to manage these applications effectively. At its heart, it lives the so called @i{control plane}, which consists of several components, running accross a single or multiple nodes, that are responsible for managing the cluster's actual state and comparing it constantly and periodically to the desired state of the system. The key components of the control plane are:
+
+@itemize @bullet
+@item @b{API server} (primary management interface for Kubernetes)
+@item @b{Scheduler} (node selector for every @i{pod} based on specific metrics)
+@item @b{Controller manager} (multiple controllers acting as cluster's desired state maintainer)
+@item @b{Cloud controller manager [optional]} (linker to a specific cloud provider's API)
+@item @b{etcd} (distributed persistent key-value database)
+@end itemize
+
+In order to run the containerized applications, there also are the @i{worker nodes}, which are responsible for executing @i{pods} (i.e. the smallest and most basic unit of deployment, which encapsulates one or more containers, storage resources, and networking components). The key components of every worker node are:
+
+@itemize @bullet
+@item @b{Kubelet} (agent for @i{control-plane} communication)
+@item @b{Kube-proxy} (network proxy enabling @i{pods-service} communication)
+@item @b{Container runtime} (software that is capable of running and managing containers, e.g. @i{containerd})
+@end itemize
+
+Kubernetes supports horizontal scaling, allowing applications to scale based on demand, providing mechanisms like deployments, replica sets, and autoscaling based on metrics to ensure the desired number of pod replicas are running. When it comes to deploying Kubernetes clusters, there are different deployment options, including and @b{on-premise model} (setting up and managing the infrastructure in a private data center or physical servers owned by the organization), and @b{cloud-based solutions} (managed Kubernetes services like EKS [Amazon Elastic Kubernetes Service], AKS [Azure Kubernetes Service], GKE [Google Kubernetes Engine], etc.). While the on-premise model offers full control and customization, a cloud-based solution allows organizations to focus on their applications without the burden of heavy infrastructure maintenance.
+
+@float Figure,k8s-cluster
+@shortcaption{Kubernetes cluster diagram}
+@caption{Kubernetes cluster diagram}
+@center @image{img/kubernetes,10.7cm,,Kubernetes cluster diagram,}
+@end float

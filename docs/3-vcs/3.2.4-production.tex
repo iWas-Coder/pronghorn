@@ -1,5 +1,9 @@
-@c Subsection 3.2.4: Production ENV
-@node Production ENV
-@subsection Production ENV
+@c Subsection 3.2.4: Production
+@node Production
+@subsection Production
 
-(...)
+In both the @b{Gitflow} and the @b{TBD} models, @samp{master} branch represents the live environment where the software is deployed and made available to end-users or customers as a stable version. However, the rate of pushes to this branch varies in every workflow, thus, the CI pipeline's tasks need to be optimized depending on this condition.
+
+While in @b{Gitflow} the @samp{master} is protected and new commits can only be merged to it through the @samp{release-*} and/or @samp{hotfix-*} branches, the @b{TBD} approach lets developers commit directly to the production branch, assuming all responsibility in case something does not go well and/or conflicts with another component. For this reason, it is vital to have a @i{CI pipeline} which works quickly and efficiently; while with the other workflow, this aspect is more permissive and there is not as much risk of the appearance of bad commits that cause a serious problem to the production environment or stable version.
+
+@page

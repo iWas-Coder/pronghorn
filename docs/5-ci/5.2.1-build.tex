@@ -2,10 +2,35 @@
 @node Build
 @subsection Build
 
-(...)
+The first stage in the pipeline involves compiling and preparing the specific software for further testing and deployment. Here, we can differenciate two scenarios: @b{compiled software} and @b{web-based software}.
 
-Traditional Containerfile/Dockerfile image construction ...
+For @b{compiled software}, such as projects written in languages like C/C++, C#, Java, Go or Rust, its build stage will typically involve the following steps:
 
-Scripted image construction, with compiling and running environments, and their intercommunication ...
+@float Table,compiled-build
+@shortcaption{Compiled software building steps}
+@caption{Compiled software building steps}
+@table @samp
+@item Dependencies
+The build system resolves and manages any external dependencies required by the software, such as libraries or frameworks. It ensures that all necessary components are available for successful compilation and linking.
 
-(...)
+@item Compilation
+The source code files are compiled into intermediate object files, and then linked together with any other additional librarries and frameworks into binary executable files. This process translates the human-readable code into machine-readable instructions.
+@end table
+@end float
+
+On the other hand, for @b{web-based software}, such as projects written in JavaScript, TypeScript, HTML, CSS, etc. (also considered here all interpreted languages, such as Python), its build stage will typically involve the following steps:
+
+@float Table,web-based-build
+@shortcaption{Web-based software building steps}
+@caption{Web-based software building steps}
+@table @samp
+@item Asset bundling
+Web applications typically consist of multiple assets, such as image files, multimedia, etc. The build process may involve bundling and minifying these assets to optimize their size and improve performance.
+
+@item Transpilation
+If the web application uses modern JavaScript or CSS features that are not supported by all browsers, the build process may include transpiling the code into a backward-compatible version, thus, ensuring broader browser compatibility.
+
+@item Dependencies
+Similar to compiled software, web-based projects may have dependencies on external libraries or frameworks. The build system resolves and includes these dependencies to ensure the application can function properly in all scenarios and environments.
+@end table
+@end float
