@@ -64,7 +64,7 @@ Pronghorn offers both a development environment to work with from a local system
 
 This is the flowchart for the pipeline that proposes this project:
 
-<img src="assets/pronghorn-ci-cd-pipeline-proposal/pronghorn-ci-cd-pipeline-proposal.png" alt="Pronghorn CI/CD Pipeline Proposal" width=100%/>
+<img src="assets/pipeline.png" alt="Pronghorn CI/CD Pipeline Proposal" width=100%/>
 
 ### Git
 

@@ -18,7 +18,7 @@ spec:
   project: default
   source:
     chart: example
-    repoURL: (...)
+    repoURL: <REPOSITORY_URL>
     targetRevision: 1.0
     helm:
       valueFiles:
@@ -28,4 +28,4 @@ spec:
     namespace: example
 @end example
 
-(...)
+By using this approach, Argo CD can be set up to use an @b{App of Apps} pattern, which means that a single defined @i{Argo CD Application resource} is able to deploy all other declared Argo CD applications, without the need of doing so manually; this recursive deployment model causes even Argo CD to deploy and control itself.
