@@ -1,6 +1,15 @@
+# Folders
 .vscode/
 build/
-*.pdf
-*.html
+pronghorn-*.html/
 .terraform/
+src/app/dist/
+src/app/node_modules/
+src/app/cypress/plugins
+src/app/cypress/support
+src/app/cypress/videos
+
+# Files
+pronghorn.html
+*.pdf
 *tfstate*
