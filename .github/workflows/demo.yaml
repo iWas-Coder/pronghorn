@@ -32,7 +32,7 @@ jobs:
           node-version: '14'
           cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
-        run: npm ci
+        run: npm i --no-audit --no-fund --no-optional
       - name: lint
         run: npm run eslint
   build:
@@ -47,7 +47,7 @@ jobs:
           node-version: '14'
           cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
-        run: npm ci
+        run: npm i --no-audit --no-fund --no-optional
       - name: build
         run: npm run build
       - name: upload-artifact
@@ -70,7 +70,7 @@ jobs:
           node-version: '14'
           cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
-        run: npm ci
+        run: npm i --no-audit --no-fund --no-optional
       - name: download-artifact
         uses: actions/download-artifact@v2
         with:
@@ -93,7 +93,7 @@ jobs:
           node-version: '14'
           cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
-        run: npm ci
+        run: npm i --no-audit --no-fund --no-optional
       - name: download-artifact
         uses: actions/download-artifact@v2
         with:
