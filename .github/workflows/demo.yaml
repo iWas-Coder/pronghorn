@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: dist
+          path: src/app/dist
   test:
     needs:
       - lint
@@ -75,7 +75,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: dist
+          path: src/app/dist
       - name: test
         run: npm test
   e2e:
@@ -98,7 +98,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: dist
+          path: src/app/dist
       - name: e2e
         uses: cypress-io/github-action@v2
         with:
