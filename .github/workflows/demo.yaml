@@ -1,0 +1,99 @@
+name: demo
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - synchronize
+
+concurrency:
+  group: app
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout-repo
+        uses: actions/checkout@v3
+      - name: node-setup
+        uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '14'
+      - name: install-dependencies
+        run: npm ci
+      - name: lint
+        run: npm run eslint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout-repo
+        uses: actions/checkout@v3
+      - name: node-setup
+        uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '14'
+      - name: install-dependencies
+        run: npm ci
+      - name: build
+        run: npm run build
+      - name: upload-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: src/app/dist
+  test:
+    needs:
+      - lint
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout-repo
+        uses: actions/checkout@v3
+      - name: node-setup
+        uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '14'
+      - name: install-dependencies
+        run: npm ci
+      - name: download-artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: src/app/dist
+      - name: test
+        run: npm test
+  e2e:
+    needs:
+      - lint
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout-repo
+        uses: actions/checkout@v3
+      - name: node-setup
+        uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '14'
+      - name: install-dependencies
+        run: npm ci
+      - name: download-artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: src/app/dist
+      - name: e2e
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          start: npm run start-test
+          wait-on: http://localhost:5000
