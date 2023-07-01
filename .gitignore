@@ -2,3 +2,5 @@
 build/
 *.pdf
 *.html
+.terraform/
+*tfstate*
