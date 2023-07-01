@@ -15,6 +15,10 @@ concurrency:
   group: app
   cancel-in-progress: true
 
+defaults:
+  run:
+    working-directory: 'src/app'
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -26,6 +30,7 @@ jobs:
         with:
           cache: 'npm'
           node-version: '14'
+          cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
         run: npm ci
       - name: lint
@@ -40,6 +45,7 @@ jobs:
         with:
           cache: 'npm'
           node-version: '14'
+          cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
         run: npm ci
       - name: build
@@ -48,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: src/app/dist
+          path: dist
   test:
     needs:
       - lint
@@ -62,13 +68,14 @@ jobs:
         with:
           cache: 'npm'
           node-version: '14'
+          cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
         run: npm ci
       - name: download-artifact
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: src/app/dist
+          path: dist
       - name: test
         run: npm test
   e2e:
@@ -84,13 +91,14 @@ jobs:
         with:
           cache: 'npm'
           node-version: '14'
+          cache-dependency-path: src/app/package-lock.json
       - name: install-dependencies
         run: npm ci
       - name: download-artifact
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: src/app/dist
+          path: dist
       - name: e2e
         uses: cypress-io/github-action@v2
         with:
