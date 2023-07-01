@@ -7,6 +7,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![documentation](https://github.com/iWas-Coder/pronghorn/actions/workflows/docs.yaml/badge.svg)](https://github.com/iWas-Coder/pronghorn/actions/workflows/docs.yaml)
+[![CodeFactor](https://www.codefactor.io/repository/github/iwas-coder/pronghorn/badge)](https://www.codefactor.io/repository/github/iwas-coder/pronghorn)
 
 [//]: # (README Body)
 
