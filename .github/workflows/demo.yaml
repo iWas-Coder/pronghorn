@@ -124,4 +124,4 @@ jobs:
       - name: build-image
         run: ./build.sh
       - name: push-to-registry
-        run: ./push.sh
+        run: ./push.sh ${{ secrets.DOCKER_HUB_USER }} ${{ secrets.DOCKER_HUB_TOKEN }}
