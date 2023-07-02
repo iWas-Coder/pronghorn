@@ -107,7 +107,7 @@ jobs:
           start: npm run start-test
           wait-on: http://localhost:5000
   containerize:
-    # if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' }}
     needs:
       - lint
       - build
@@ -124,7 +124,6 @@ jobs:
       - name: build-image
         run: ./build.sh
       - name: push-to-registry
-        if: ${{ github.event_name == 'push' }}
         run: |
           buildah push                                                             \
             --creds ${{ secrets.DOCKER_HUB_USER }}:${{ secrets.DOCKER_HUB_TOKEN }} \
