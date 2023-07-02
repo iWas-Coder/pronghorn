@@ -31,9 +31,9 @@ APP = pronghorn
 DESC = A fast, simple, efficient and automated CI/CD pipeline
 # Version and metadata
 VERSION = 1
-PATCHLEVEL = 0
-SUBLEVEL = 2
-EXTRAVERSION =
+PATCHLEVEL = 1
+SUBLEVEL = 0
+EXTRAVERSION = -rc1
 NAME = Hurr durr I'ma cute kitten
 ifeq ($(SUBLEVEL),0)
 	FULL_VERSION ?= $(VERSION).$(PATCHLEVEL)$(EXTRAVERSION)
