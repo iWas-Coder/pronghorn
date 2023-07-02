@@ -122,8 +122,9 @@ jobs:
           sudo apt update
           sudo apt install -y buildah
       - name: build-image
-        run: pwd && ls -la && sudo ./build.sh
+        run: ./build.sh
       - name: push-to-registry
+        if: ${{ github.event_name == 'push' }}
         run: |
           buildah push                                                             \
             --creds ${{ secrets.DOCKER_HUB_USER }}:${{ secrets.DOCKER_HUB_TOKEN }} \
