@@ -29,4 +29,4 @@ $run "npm i --no-audit --no-fund --no-optional"
 $run "npm run build"
 buildah config --entrypoint "npm run start" $container
 buildah commit --squash $container "$IMAGE_NAME"
-buildah rm $container && buildah rmi --prune && unset $container
+buildah rm $container && buildah rmi --prune && unset container
