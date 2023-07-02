@@ -118,13 +118,13 @@ footer {
 
 .pokemon-stats-name {
   font-weight: 300;
-  padding: 4px 8px 0 8px;
+  padding: 4px 8px 0;
   text-align: right;
   width: 50%;
 }
 
 .pokemon-stats-value {
-  padding: 4px 8px 0 8px;
+  padding: 4px 8px 0;
 }
 
 .pokemon-abilities {
