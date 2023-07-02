@@ -16,7 +16,7 @@ if [ ! -z "${string##*$substr*}" ]; then
   exit 1
 fi
 
-container=$(buildah from --arch "$ARCH" node)
+container=$(buildah from --arch "$ARCH" node:14)
 run="buildah run $container /bin/sh -c"
 
 buildah copy $container . "/$APP"
