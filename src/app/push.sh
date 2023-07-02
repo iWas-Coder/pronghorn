@@ -9,4 +9,4 @@ TOKEN="$2"
 
 . ./env.sh
 
-buildah push --creds "$USER:$TOKEN" "$APP:$VERSION-$ARCH" docker://"$USER"/"$APP"
+buildah push --creds "$USER:$TOKEN" "$APP:$VERSION-$ARCH" docker://"$USER"/"$APP:$VERSION-$ARCH"
