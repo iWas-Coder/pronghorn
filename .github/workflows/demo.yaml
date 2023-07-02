@@ -106,3 +106,26 @@ jobs:
           command: npm run test:e2e
           start: npm run start-test
           wait-on: http://localhost:5000
+  containerize:
+    if: ${{ github.event_name == 'push' }}
+    needs:
+      - lint
+      - build
+      - test
+      - e2e
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout-repo
+        uses: actions/checkout@v3
+      - name: install-dependencies
+        run: |
+          apt update
+          apt install -y buildah
+      - name: build-image
+        run: ./build.sh
+      - name: push-to-registry
+        run: |
+          buildah push                                                             \
+            --creds ${{ secrets.DOCKER_HUB_USER }}:${{ secrets.DOCKER_HUB_TOKEN }} \
+            $IMAGE_NAME                                                            \
+            docker://${{ secrets.DOCKER_HUB_USER }}/$APP
