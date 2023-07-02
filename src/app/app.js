@@ -15,5 +15,5 @@ app.get('/version', (req, res) => {
 app.use(express.static('dist'))
 
 app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`)
+  // DEBUG: console.log(`server started on port ${PORT}`)
 })
